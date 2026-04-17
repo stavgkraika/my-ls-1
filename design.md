@@ -5,18 +5,26 @@
 
 ```bash
 my-ls/
-│
+├── go.mod
 ├── main.go
-├── internal/
-│   ├── parser/parser.go
-│   ├── reader/reader.go
-│   ├── sorter/sorter.go
-│   ├── display/display.go
-│   ├── walker/walker.go
-│   └── models/models.go
-├── utils/utils.go
-├── tests/testdata/
-└── README.md
+├── design.md
+└── internal/
+    ├── core/
+    │   └── core.go
+    ├── meta/
+    │   ├── meta_unix.go
+    │   └── meta_windows.go
+    ├── models/
+    │   └── models.go
+    ├── parser/
+    │   ├── parser.go
+    │   └── parser_test.go
+    ├── reader/
+    │   ├── reader.go
+    │   └── reader_test.go
+    └── sorter/
+        ├── sorter.go
+        └── sorter_test.go
 ```
 
 ---
@@ -36,7 +44,6 @@ type Entry struct {
     Name string
     Path string
     Info os.FileInfo
-    Stat *syscall.Stat_t
 }
 ```
 
